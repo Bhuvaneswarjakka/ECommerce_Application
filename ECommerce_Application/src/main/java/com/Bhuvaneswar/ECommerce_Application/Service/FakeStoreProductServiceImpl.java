@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-@Service
-public class FakeStoreProductServiceImpl implements ProductService
+@Service("FakeStoreProductServiceImpl")
+public class FakeStoreProductServiceImpl
 {
     @Autowired
     private FakeStoreClient fakeStoreClient;
 
-    @Override
     public List<FakeStoreProductResponseDTO> getAllProducts() throws NoProductPresentException{
         List<FakeStoreProductResponseDTO> fakeStoreproducts=fakeStoreClient.getAllProducts();
         if(fakeStoreproducts==null)
@@ -24,7 +23,6 @@ public class FakeStoreProductServiceImpl implements ProductService
         return fakeStoreproducts;
     }
 
-    @Override
     public FakeStoreProductResponseDTO getProduct(int productId) throws productNotFoundException{
         FakeStoreProductResponseDTO fakeStoreproduct=fakeStoreClient.getProduct(productId);
         if(fakeStoreproduct==null)
@@ -34,17 +32,14 @@ public class FakeStoreProductServiceImpl implements ProductService
         return fakeStoreproduct;
     }
 
-    @Override
     public Product createProduct(Product product) {
         return null;
     }
 
-    @Override
     public Product updateProduct(Product product, int productId) {
         return null;
     }
 
-    @Override
     public boolean deleteProduct(int productId) {
         return false;
     }

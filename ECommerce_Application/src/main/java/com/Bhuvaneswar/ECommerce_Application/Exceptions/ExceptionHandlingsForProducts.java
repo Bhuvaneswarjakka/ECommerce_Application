@@ -1,13 +1,14 @@
 package com.Bhuvaneswar.ECommerce_Application.Exceptions;
 
 import com.Bhuvaneswar.ECommerce_Application.DTOs.ExceptionResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.controller.ProductController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
-public class ExceptionHandlings
+@ControllerAdvice(basePackageClasses = ProductController.class)
+public class ExceptionHandlingsForProducts
 {
     @ExceptionHandler(productNotFoundException.class)
     public ResponseEntity handleProductNotFoundException(productNotFoundException pe)
