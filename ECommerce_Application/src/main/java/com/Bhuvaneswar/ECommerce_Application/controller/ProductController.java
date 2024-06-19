@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class ProductController
@@ -52,9 +53,9 @@ public class ProductController
     }
 
     @GetMapping("/product/{id}")
-    public ResponseEntity getProduct(@PathVariable("id") int productId) throws InvalidInputException
+    public ResponseEntity getProduct(@PathVariable("id") UUID productId) throws InvalidInputException
     {
-        if(productId<1)
+        if(productId==null)
         {
             throw new InvalidInputException
                     ("Input is Invalid of productId "+productId);
@@ -68,5 +69,18 @@ public class ProductController
     {
         Product p=productService.createProduct(product);
         return ResponseEntity.ok(p);
+    }
+
+    @PutMapping("/product/update/{id}")
+    public ResponseEntity updateProduct(@RequestBody Product product, @PathVariable("id") UUID productId)
+    {
+        Product p=productService.updateProduct(product, productId);
+        return ResponseEntity.ok(p);
+    }
+
+    @DeleteMapping("/product/delete/{id}")
+    public ResponseEntity deleteProduct(@PathVariable("id") UUID productId)
+    {
+        return ResponseEntity.ok(productService.deleteProduct(productId));
     }
 }

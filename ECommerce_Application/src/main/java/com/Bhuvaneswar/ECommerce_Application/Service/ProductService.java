@@ -5,6 +5,7 @@ import com.Bhuvaneswar.ECommerce_Application.DTOs.ProductResponseDTO;
 import com.Bhuvaneswar.ECommerce_Application.entity.Product;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface ProductService
 {
@@ -20,9 +21,9 @@ public interface ProductService
      */
 
     List<Product> getAllProducts();
-    Product getProduct(int productId);
+    Product getProduct(UUID productId);
     Product createProduct(Product product);
-    Product updateProduct(Product product, int productId);
-    boolean deleteProduct(int productId);
+    Product updateProduct(Product product, UUID productId);
+    boolean deleteProduct(UUID productId);
 
 }
