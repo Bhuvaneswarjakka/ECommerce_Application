@@ -73,7 +73,8 @@ public class CategoryServiceImpl implements CategoryService
         {
             return 0.0;
         }
-        else {
+        else
+        {
             double sum=0.0;
             for(Product product:category.getProducts())
             {
