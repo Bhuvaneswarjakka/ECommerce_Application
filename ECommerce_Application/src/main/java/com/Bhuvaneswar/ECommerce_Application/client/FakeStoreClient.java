@@ -1,6 +1,6 @@
 package com.Bhuvaneswar.ECommerce_Application.client;
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreCartForUserResponseDTO;
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreProductResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreDTOs.FakeStoreCartForUserResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreDTOs.FakeStoreProductResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;

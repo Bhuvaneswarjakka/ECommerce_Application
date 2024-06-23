@@ -1,5 +1,5 @@
 package com.Bhuvaneswar.ECommerce_Application.controller;
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreProductResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.ProductRequestDTO;
 import com.Bhuvaneswar.ECommerce_Application.DTOs.ProductResponseDTO;
 import com.Bhuvaneswar.ECommerce_Application.Exceptions.InvalidInputException;
 import com.Bhuvaneswar.ECommerce_Application.Service.ProductService;
@@ -46,40 +46,40 @@ public class ProductController
     private ProductService productService; //field Injection
 
     @GetMapping("/product")
-    public ResponseEntity getAllProducts()
+    public ResponseEntity<List<ProductResponseDTO>> getAllProducts()
     {
-        List<Product> products=productService.getAllProducts();
+        List<ProductResponseDTO> products=productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
     @GetMapping("/product/{id}")
-    public ResponseEntity getProduct(@PathVariable("id") UUID productId) throws InvalidInputException
+    public ResponseEntity<ProductResponseDTO> getProduct(@PathVariable("id") UUID productId) throws InvalidInputException
     {
         if(productId==null)
         {
             throw new InvalidInputException
                     ("Input is Invalid of productId "+productId);
         }
-        Product product=productService.getProduct(productId);
+        ProductResponseDTO product=productService.getProduct(productId);
         return ResponseEntity.ok(product);
     }
 
     @PostMapping("/product/create")
-    public ResponseEntity createProduct(@RequestBody Product product)
+    public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductRequestDTO productRequestDTO)
     {
-        Product p=productService.createProduct(product);
+        ProductResponseDTO p=productService.createProduct(productRequestDTO);
         return ResponseEntity.ok(p);
     }
 
     @PutMapping("/product/update/{id}")
-    public ResponseEntity updateProduct(@RequestBody Product product, @PathVariable("id") UUID productId)
+    public ResponseEntity<ProductResponseDTO> updateProduct(@RequestBody ProductRequestDTO productRequestDTO, @PathVariable("id") UUID productId)
     {
-        Product p=productService.updateProduct(product, productId);
+        ProductResponseDTO p=productService.updateProduct(productRequestDTO, productId);
         return ResponseEntity.ok(p);
     }
 
     @DeleteMapping("/product/delete/{id}")
-    public ResponseEntity deleteProduct(@PathVariable("id") UUID productId)
+    public ResponseEntity<Boolean> deleteProduct(@PathVariable("id") UUID productId)
     {
         return ResponseEntity.ok(productService.deleteProduct(productId));
     }

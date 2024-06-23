@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FakeStoreProductRatingDTO
+public class CreateCategoryRequestDTO
 {
-    private double rate;
-    private int count;
+    private String categoryName;
 }

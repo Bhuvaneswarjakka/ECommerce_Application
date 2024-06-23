@@ -1,6 +1,6 @@
 package com.Bhuvaneswar.ECommerce_Application.controller;
 
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreCartForUserResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreDTOs.FakeStoreCartForUserResponseDTO;
 import com.Bhuvaneswar.ECommerce_Application.Exceptions.InvalidInputException;
 import com.Bhuvaneswar.ECommerce_Application.Exceptions.NoCartFoundWithUserException;
 import com.Bhuvaneswar.ECommerce_Application.client.FakeStoreClient;

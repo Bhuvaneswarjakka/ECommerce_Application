@@ -1,6 +1,6 @@
 package com.Bhuvaneswar.ECommerce_Application.Service;
 
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreProductResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.ProductRequestDTO;
 import com.Bhuvaneswar.ECommerce_Application.DTOs.ProductResponseDTO;
 import com.Bhuvaneswar.ECommerce_Application.entity.Product;
 
@@ -20,10 +20,10 @@ public interface ProductService
 
      */
 
-    List<Product> getAllProducts();
-    Product getProduct(UUID productId);
-    Product createProduct(Product product);
-    Product updateProduct(Product product, UUID productId);
+    List<ProductResponseDTO> getAllProducts();
+    ProductResponseDTO getProduct(UUID productId);
+    ProductResponseDTO createProduct(ProductRequestDTO productRequestDTO);
+    ProductResponseDTO updateProduct(ProductRequestDTO product, UUID productId);
     boolean deleteProduct(UUID productId);
 
 }

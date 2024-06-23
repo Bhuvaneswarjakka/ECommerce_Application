@@ -1,5 +1,5 @@
 package com.Bhuvaneswar.ECommerce_Application.Service;
-import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreProductResponseDTO;
+import com.Bhuvaneswar.ECommerce_Application.DTOs.FakeStoreDTOs.FakeStoreProductResponseDTO;
 import com.Bhuvaneswar.ECommerce_Application.Exceptions.NoProductPresentException;
 import com.Bhuvaneswar.ECommerce_Application.Exceptions.productNotFoundException;
 import com.Bhuvaneswar.ECommerce_Application.client.FakeStoreClient;
