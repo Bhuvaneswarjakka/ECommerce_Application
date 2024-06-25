@@ -15,6 +15,7 @@ public class User extends BaseModel
     private String nameOfUser;
     private String emailId;
     private String password; // this should be encrypted
+    private String token; //Temporary Solution
     @ManyToMany
     private List<Role> roles;
 }

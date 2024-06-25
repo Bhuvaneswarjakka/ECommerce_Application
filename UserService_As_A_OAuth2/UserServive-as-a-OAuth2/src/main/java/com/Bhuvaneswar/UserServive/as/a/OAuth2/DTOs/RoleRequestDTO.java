@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginRequestDTO
+public class RoleRequestDTO
 {
-    private String emailId;
-    private String password; // need to encrypt
+    private String roleName;
+    private String description;
 }

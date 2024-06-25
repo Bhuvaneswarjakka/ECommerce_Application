@@ -15,6 +15,7 @@ public class UserResponseDTO
     private String nameOfUser;
     private String email;
     private List<RoleResponseDTO> roles;
+    public String token;
 
     //mapper
     public static UserResponseDTO from(User user)
@@ -23,10 +24,13 @@ public class UserResponseDTO
         userResponseDTO.nameOfUser=user.getNameOfUser();
         userResponseDTO.email=user.getEmailId();
         userResponseDTO.roles=new ArrayList<>();
+        userResponseDTO.token=user.getToken();
         for(Role role: user.getRoles())
         {
             RoleResponseDTO responseDTO=new RoleResponseDTO();
             responseDTO.setNameOfRole(role.getNameOfRole());
+            responseDTO.setDescription(role.getDescription());
+            userResponseDTO.roles.add(responseDTO);
         }
         return userResponseDTO;
     }
