@@ -1,20 +1,17 @@
 package com.Bhuvaneswar.ECommerce_Application.DTOs;
 
-
-import com.Bhuvaneswar.ECommerce_Application.entity.Product;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.Instant;
+import java.io.Serializable;
+
 import java.util.UUID;
 
 @Getter
 @Setter
-public class ProductResponseDTO
+public class ProductResponseDTO implements Serializable
 {
-    private UUID id;
+    private UUID productId;
     private String title;
     private double price;
     private String description;

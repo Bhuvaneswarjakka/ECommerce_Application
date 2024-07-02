@@ -9,7 +9,7 @@ public class ProductEntityDTOMapper
     public static ProductResponseDTO convertProductEntityToProductResponseDTO(Product product)
     {
         ProductResponseDTO productResponseDTO=new ProductResponseDTO();
-        productResponseDTO.setId(product.getId());
+        productResponseDTO.setProductId(product.getId());
         productResponseDTO.setTitle(product.getTitle());
         productResponseDTO.setRating(product.getRating());
         productResponseDTO.setPrice(product.getPrice());

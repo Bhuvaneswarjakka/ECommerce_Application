@@ -6,6 +6,7 @@ import com.Bhuvaneswar.ECommerce_Application.Service.ProductService;
 import com.Bhuvaneswar.ECommerce_Application.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,23 +46,25 @@ public class ProductController
     @Qualifier("productServiceOurOwn")
     private ProductService productService; //field Injection
 
+    @Cacheable(value = "product")
     @GetMapping("/product")
-    public ResponseEntity<List<ProductResponseDTO>> getAllProducts()
+    public List<ProductResponseDTO> getAllProducts()
     {
         List<ProductResponseDTO> products=productService.getAllProducts();
-        return ResponseEntity.ok(products);
+        return products;
     }
 
+    @Cacheable(value = "product" , key = "#id")
     @GetMapping("/product/{id}")
-    public ResponseEntity<ProductResponseDTO> getProduct(@PathVariable("id") UUID productId) throws InvalidInputException
+    public ProductResponseDTO getProduct(@PathVariable("id") UUID id)
     {
-        if(productId==null)
+        if(id==null)
         {
             throw new InvalidInputException
-                    ("Input is Invalid of productId "+productId);
+                    ("Input is Invalid of productId "+id);
         }
-        ProductResponseDTO product=productService.getProduct(productId);
-        return ResponseEntity.ok(product);
+        ProductResponseDTO product=productService.getProduct(id);
+        return product;
     }
 
     @PostMapping("/product/create")
